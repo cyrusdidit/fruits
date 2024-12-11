@@ -1,27 +1,16 @@
 <?php
 
 require "functions.php";
+require "Database.php";
 
 echo "Rawr <br><br>";
 
 
-//connect db and php with PDO
-//datasource name
-$dsn = "mysql:host=localhost;port=3306;user=root;dbname=blogcyrus;charset=utf8mb4";
-//db object (php data object)
-$pdo = new PDO($dsn);
-
-//prepare statement
-
-$statement = $pdo->prepare("SELECT * FROM posts");
-
-//fillout statement
-$statement->execute();
+$db = new Database();
+$db->query();
 
 //get blog inputs
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC); //PDO::FETCH_ASSOC or just (2)
-//see it
-
+$posts = $db->query(); //PDO::FETCH_ASSOC or just (2)
 
 
 //foreach output each post in a table
@@ -46,4 +35,7 @@ foreach($posts as $post){
     echo "<li>" . ($post['content']) . "</li>"; // Output content
 }
 echo "</ul>";
+
+
+
 ?>
