@@ -2,7 +2,7 @@
 
 class Database{
     //make query method
-    public function query(){
+    public function query($sql){
 
 //datasource name
 $dsn = "mysql:host=localhost;port=3306;user=root;dbname=blogcyrus;charset=utf8mb4";
@@ -11,7 +11,7 @@ $pdo = new PDO($dsn);
 
 
         //prepare statement
-        $statement = $pdo->prepare("SELECT * FROM posts");
+        $statement = $pdo->prepare($sql);
         //fillout statement
         $statement->execute();
         
