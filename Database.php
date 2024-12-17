@@ -1,25 +1,26 @@
 <?php
 
 class Database{
-    //make query method
-    public function query($sql){
+    public $pdo;
 
-//datasource name
-$dsn = "mysql:host=localhost;port=3306;user=root;dbname=blogcyrus;charset=utf8mb4";
-//db object (php data object)
-$pdo = new PDO($dsn);
+    //make and destroy
+    public function __construct($config){
+        //data source name
+        $dsn = "mysql:" . http_build_query($config, "", ";");
 
-
-        //prepare statement
-        $statement = $pdo->prepare($sql);
-        //fillout statement
-        $statement->execute();
-        
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        //php data object
+        $this->pdo = new PDO($dsn);
+        $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); //19,2
     }
 
-}
 
+    public function query($sql){
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+
+        return $statement;
+    }
+}
 
 
 
