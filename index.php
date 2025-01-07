@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+
 <?php
 //#96C3EB
 //search box for flitering blog entries

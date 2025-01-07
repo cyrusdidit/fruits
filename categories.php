@@ -1,11 +1,12 @@
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+
 <?php
-
-
 require "functions.php";
 require "Database.php";
 
 //header
-echo "<h1>Categories</h1>";
+echo "<h1 class='HeaderC'>Categories</h1>";
 
 $config = require("config.php");
 
