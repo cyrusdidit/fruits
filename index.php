@@ -16,13 +16,14 @@ $config = require("config.php");
 $db = new Database($config["database"]);
 $posts = $db->query("SELECT * FROM posts")->fetchAll(PDO::FETCH_ASSOC);
 
-//SELECT * FROM posts WHERE content LIKE "whats in search_query";
 
+//search logic
 if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
-    echo "Smth is being searched";
-    //search logic
-    dd("SELECT * FROM posts WHERE content LIKE " . $_GET["search_query"] . "';");
-    $posts = $db->query("SELECT * FROM posts WHERE content LIKE " . $_GET["search_query"])->fetchAll();
+    //filters posts if they include "search_query"
+    $posts = $db->query("SELECT * FROM posts WHERE content LIKE '%" . $_GET["search_query"] . "%';")->fetchAll();
+} else {
+    //if search box is left empty, shows all posts
+    $posts = $db->query("SELECT * FROM posts")->fetchAll();
 }
 
 //search form
