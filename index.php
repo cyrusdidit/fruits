@@ -14,18 +14,25 @@ echo "<h1>Blog</h1>";
 $config = require("config.php");
 
 $db = new Database($config["database"]);
-$posts = $db->query("SELECT * FROM posts")->fetchAll(PDO::FETCH_ASSOC);
-
 
 //search logic
 $sql = "SELECT * FROM posts";
 $params = [];
 if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
     //filters posts if they include "search_query"
-    $sql .= " WHERE content LIKE '%" . $_GET["search_query"] . "%';";
+    $search_query = "%" . $_GET["search_query"] . "%";
+    $sql .= " WHERE content LIKE :search_query;";
+    $params = ["search_query" => $search_query];
 }
 //shows the results (if empty will show all posts)
 $posts = $db->query($sql, $params)->fetchAll(); 
+
+
+
+
+
+
+
 
 
 //search form
