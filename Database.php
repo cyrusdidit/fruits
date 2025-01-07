@@ -16,7 +16,7 @@ class Database{
 
     public function query($sql){
         $statement = $this->pdo->prepare($sql);
-        $statement->execute();
+        $statement->execute($params); //do it
 
         return $statement;
     }

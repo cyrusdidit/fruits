@@ -1,5 +1,5 @@
 <?php
-
+//#96C3EB
 //search box for flitering blog entries
 //1. html form input element, submit button -
 //2. PHP gets from form and so on
@@ -18,13 +18,15 @@ $posts = $db->query("SELECT * FROM posts")->fetchAll(PDO::FETCH_ASSOC);
 
 
 //search logic
+$sql = "SELECT * FROM posts";
+$params = [];
 if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
     //filters posts if they include "search_query"
-    $posts = $db->query("SELECT * FROM posts WHERE content LIKE '%" . $_GET["search_query"] . "%';")->fetchAll();
-} else {
-    //if search box is left empty, shows all posts
-    $posts = $db->query("SELECT * FROM posts")->fetchAll();
+    $sql .= " WHERE content LIKE '%" . $_GET["search_query"] . "%';";
 }
+//shows the results (if empty will show all posts)
+$posts = $db->query($sql, $params)->fetchAll(); 
+
 
 //search form
 //POST - if change db - sends domain
@@ -35,9 +37,7 @@ echo "<button>Search!</button>";
 echo "</form>";
 
 
-
-
-//posts to post list
+//posts to post (list)
 echo "<ul>";
 foreach($posts as $post){
     echo "<li>" . $post['content'] . "</li>";
