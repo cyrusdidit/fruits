@@ -1,12 +1,11 @@
 
-<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <?php
 require "functions.php";
 require "Database.php";
 
 //header
-echo "<h1 class='HeaderC'>Categories</h1>";
 
 $config = require("config.php");
 
@@ -25,21 +24,7 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
 $categories = $db->query($sql, $params)->fetchAll(); 
 
 
-//search form 
-//POST - if change db - sends domain
-//GET - default - if u just read data - sends thing
-echo "<form >";
-echo "<input name='search_query' />";
-echo "<button>Search!</button>";
-echo "</form>";
-
-
-//posts to post (list)
-echo "<ul>";
-foreach($categories as $category){
-    echo "<li>" . $category['category_name'] . "</li>";
-}
-echo "</ul>";
-
+//Puts search, posts and header into index.view.php
+require "views/categories.view.php";
 
 ?>

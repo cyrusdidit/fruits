@@ -11,8 +11,6 @@
 require "functions.php";
 require "Database.php";
 
-//header
-echo "<h1>Blog</h1>";
 
 $config = require("config.php");
 
@@ -31,28 +29,15 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
 $posts = $db->query($sql, $params)->fetchAll(); 
 
 
+//Puts search, posts and header into index.view.php
+require "views/index.view.php";
+
+//is there, you dont know it or if it is there $x
+//2nd value, where value comes from 1st val
+//if it is there, 
 
 
-
-
-
-
-
-//search form
-//POST - if change db - sends domain
-//GET - default - if u just read data - sends thing
-echo "<form >";
-echo "<input name='search_query' />";
-echo "<button>Search!</button>";
-echo "</form>";
-
-
-//posts to post (list)
-echo "<ul>";
-foreach($posts as $post){
-    echo "<li>" . $post['content'] . "</li>";
-}
-echo "</ul>";
-
+//null coalescing operator
+//$y = $x ?? "not found";
 
 ?>
