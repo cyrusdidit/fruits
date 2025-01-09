@@ -1,12 +1,11 @@
 <?php
 
-//dump and die
-function dd($data){
-    echo "<pre>";
-    var_dump($data);
-    echo "</pre>";
-    die(); //stops code
-    };
-
-
-?>
+// Define the dd() helper function for debugging if it's not already defined
+if (!function_exists('dd')) {
+    function dd($data) {
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+        die();
+    }
+}

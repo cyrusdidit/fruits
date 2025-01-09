@@ -11,4 +11,4 @@
 <body>
 
 
-<link rel="stylesheet" type="text/css" href="css\styles.css">
+<link rel="stylesheet" href="/css/styles.css">

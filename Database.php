@@ -1,27 +1,31 @@
 <?php
 
-class Database{
-    public $pdo;
+// Check if the Database class is already defined
+if (!class_exists('Database')) {
+    class Database {
+        public $pdo;
 
-    //make and destroy
-    public function __construct($config){
-        //data source name
-        $dsn = "mysql:" . http_build_query($config, "", ";");
+        // Constructor to establish a PDO connection
+        public function __construct($config) {
+            // Proper DSN construction
+            $dsn = "mysql:host=" . $config['host'] . ";port=" . $config['port'] . ";dbname=" . $config['dbname'] . ";charset=" . $config['charset'];
 
-        //php data object
-        $this->pdo = new PDO($dsn);
-        $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); //19,2
-    }
+            // Create the PDO object
+            try {
+                $this->pdo = new PDO($dsn, $config['user'], $config['password']);
+                $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); // Set fetch mode to associative
+            } catch (PDOException $e) {
+                echo "Connection failed: " . $e->getMessage();
+                die(); // Stop execution if connection fails
+            }
+        }
 
-
-    public function query($sql, $params){
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute($params); //do it
-        return $statement;
+        // Method to execute queries
+        public function query($sql, $params = []) {
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute($params);
+            return $statement;
+        }
     }
 }
-
-
-
-
 ?>

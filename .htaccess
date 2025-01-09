@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Exclude CSS, JS, and image files from being rewritten
+RewriteRule ^(css|js|images)/ - [L]
+
+# Rewrite all other requests to index.php
+RewriteRule ^ index.php [QSA,L]
+
+# Custom 404 error page
+ErrorDocument 404 /404.php

@@ -1,19 +1,17 @@
-.HeaderC {
-    color: #96c3eb;
-}
+
 
 body{
     background-color: rgb(19 30 56);
     color: white;
-    margin-top: 0;
-    margin-left: 5px;
+    margin-top: 17px;
+    margin-left: 15px;
 }
 
 /*Navbar now pretty*/
 header ul{
     display: flex;
     gap: 20px;
-    margin-left: 5px; }
+    margin-left: -40px; }
 header ul li{
     list-style-type: none;
     padding: 7px 10px;
