@@ -1,10 +1,9 @@
-<html lang="en">
-<head>
-</head>
-<body>
+
+<?php require "components/header.php"; //gets html code thats from doctype to <body> ?>
+<?php require "components/navbar.php"; //gets html code for navbar ?>
 
 
-<h1 class='HeaderC'>Categories</h1>
+<h1>Categories</h1>
 
 <form>
 <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>'/>
@@ -19,4 +18,4 @@
 
 
 
-</body>
+<?php require "components/footer.php"; //gets html code thats from doctype to </body> ?>

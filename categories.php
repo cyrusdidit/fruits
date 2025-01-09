@@ -23,6 +23,7 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
 //shows the results (if empty will show all posts)
 $categories = $db->query($sql, $params)->fetchAll(); 
 
+$pageTitle="Categories";
 
 //Puts search, posts and header into index.view.php
 require "views/categories.view.php";

@@ -1,12 +1,8 @@
 
-<link rel="stylesheet" type="text/css" href="styles.css">
-
 <?php
-//#96C3EB
+//#96C3EB - Im blue ladadidadadididaaaaa
+
 //search box for flitering blog entries
-//1. html form input element, submit button -
-//2. PHP gets from form and so on
-//3. izviedot vaicinajumu uz db
 
 require "functions.php";
 require "Database.php";
@@ -28,16 +24,10 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
 //shows the results (if empty will show all posts)
 $posts = $db->query($sql, $params)->fetchAll(); 
 
+$pageTitle="Blog";
 
 //Puts search, posts and header into index.view.php
 require "views/index.view.php";
 
-//is there, you dont know it or if it is there $x
-//2nd value, where value comes from 1st val
-//if it is there, 
-
-
-//null coalescing operator
-//$y = $x ?? "not found";
 
 ?>

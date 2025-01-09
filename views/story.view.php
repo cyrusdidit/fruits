@@ -1,7 +1,8 @@
-<html lang="en">
-<head>
-</head>
-<body>
+
+
+<?php require "components/header.php"; //gets html code thats from doctype to <body> ?>
+<?php require "components/navbar.php"; //gets html code for navbar ?>
+
 
 <h1>Blogu revolūcija: populārās blogu platformas <em><?= $title ?></em> stāsts</h1>
 
@@ -31,4 +32,4 @@ Lietotāju skaits strauji pieaug, jo cilvēki no visas Latvijas novērtē iespē
 ko piedāvā <?= $title ?>, un platformas radīto ciešo saikni starp rakstniekiem un lasītājiem.</p>
 
 
-</body>
+<?php require "components/footer.php"; //gets html code thats from doctype to </body> ?>

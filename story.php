@@ -1,7 +1,6 @@
 <?php
 
-// TODO: Izvēlies nosaukumu bloga vietnei!
 $title="WEBSITE";
-
+$pageTitle="About Us";
 
 require "views/story.view.php";
