@@ -9,19 +9,21 @@ $parsedUrl = parse_url($requestUri);
 // Extract the path part of the URL
 $uri = $parsedUrl["path"];
 
+//getting routes from routes.php
+$routes = require("routes.php");
+
 // Add routing logic
 if ($uri === "/") {
     // Home page route
-    require 'controllers/index.php'; // Adjust the path as needed
-} elseif ($uri === "/about") {
+    require 'controllers/index.php'; 
+} else if ($uri === "/about") {
     // About page route
-    require 'controllers/story.php'; // Adjust the path as needed
-} elseif ($uri === "/categories") {
-    // Categories page route
-    require 'controllers/categories.php'; // Adjust the path as needed
+    require 'controllers/story.php'; 
+} else if ($uri === "/categories") {
+    require 'controllers/categories.php'; 
 } else {
     // 404 Not Found
     http_response_code(404); // Set HTTP response code to 404
-    echo "<p>Atvainojiet, lapa netika atrasta!</p>"; // Output error message
+    echo "<p>Atvainojiet, lapa netika atrasta!</p>"; // error message
     die(); // Stop further execution
 }
