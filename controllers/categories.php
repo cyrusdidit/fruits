@@ -2,8 +2,7 @@
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <?php
-require "functions.php";
-require "Database.php";
+
 
 //header
 

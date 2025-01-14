@@ -4,9 +4,6 @@
 
 //search box for flitering blog entries
 
-require "functions.php";
-require "Database.php";
-
 
 $config = require("config.php");
 
@@ -25,9 +22,9 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
 $posts = $db->query($sql, $params)->fetchAll(); 
 
 $pageTitle="Blog";
-
+//dd($posts);
 //Puts search, posts and header into index.view.php
-require "views/index.view.php";
+require "views/posts/index.view.php";
 
 
 ?>

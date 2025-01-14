@@ -1,10 +1,10 @@
 <?php
 
 return [
-"/" => "controllers/index.php",
+"/" => "controllers/posts/index.php",
 "/about" => "controllers/story.php",
-"/categories" => "controllers/categories.php"
-
+"/categories" => "controllers/categories.php",
+"/show" => "controllers/posts/show.php"
 
 ];
 
