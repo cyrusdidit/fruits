@@ -18,7 +18,7 @@
 <ul>
 <?php foreach($posts as $post){ ?>
     <li><a href="show?id=<?= $post["ID"] ?>"> <?= htmlspecialchars($post["content"]) ?> </a> </li> 
-<?php } ?> 
+    <?php } ?> 
 </ul>
 
 

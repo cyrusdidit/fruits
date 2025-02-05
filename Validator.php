@@ -9,7 +9,7 @@ class Validator {
                 && strlen($value) <= $max;
     }
 
-    public static function number($value, $min = 0, $max = INF) {
+    public static function number($value, $min = 0, $max = INF) { //methods are called with 
         $value = trim($value); // removes empty space at start & end
 
         return is_numeric($value)

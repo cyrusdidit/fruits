@@ -5,8 +5,8 @@ return [
 "/about" => "controllers/story.php",
 "/categories" => "controllers/categories.php",
 "/show" => "controllers/posts/show.php",
-"/create" => "controllers/posts/create.php"
-
+"/create" => "controllers/posts/create.php",
+"/edit" => "controllers/posts/edit.php"
 ];
 
 
