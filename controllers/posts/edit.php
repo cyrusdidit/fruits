@@ -17,7 +17,7 @@ $postID = $_GET["id"];
 // Fetch the existing post
 $query = $db->query("SELECT * FROM posts WHERE ID = :id", ["id" => $postID]);
 $post = $query->fetch();
-
+//If the id doesn't exist
 if (!$post) {
     die("Post not found.");
 }
@@ -28,19 +28,19 @@ $errors = [];
 // Handle updating
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $postID = $_POST["id"]; // Get post ID from hidden input
-    $content = trim($_POST["content"] ?? "");
+    $content = trim($_POST["name"] ?? "");
 
     if (!Validator::string($content, max: 50)) {
-        $errors["content"] = "Content must be between 1 and 50 characters!";
+        $errors["name"] = "Name must be between 1 and 50 characters!";
     }
 
     if (empty($errors)) {
         // UPDATE, NOT MAKE NEW
-        $sql = "UPDATE posts SET content = :content WHERE ID = :id";
-        $params = ["content" => $content, "id" => $postID];
+        $sql = "UPDATE fruits SET name = :name WHERE ID = :id";
+        $params = ["name" => $name, "id" => $fruitID];
         $db->query($sql, $params);
 
-        header("Location: show?id=" . $postID); // Redirect to updated post
+        header("Location: show?id=" . $fruitID); // Redirect to updated post
         exit();
     }
 }

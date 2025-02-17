@@ -6,7 +6,7 @@
 <form method="POST"> 
     <label>
         <p>Content:</p>
-        <textarea name="content" required><?= htmlspecialchars($_POST['content'] ?? '') ?></textarea>   
+        <textarea name="name" required><?= htmlspecialchars($_POST['content'] ?? '') ?></textarea>   
     </label>
     <br>
     <br>

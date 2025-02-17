@@ -3,21 +3,21 @@
 <?php require "views/components/navbar.php"; //gets html code for navbar ?>
 
 
-<h1>Blog</h1>
+<h1>FRUITS</h1>
 
 <form>
 <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>'/>
 <button>Search!</button>
 </form>
 
-<?php if (count($posts) == 0){ ?>
+<?php if (count($fruits) == 0){ ?>
  <p>No results hoe</p>
 <?php } ?>
 
 
 <ul>
-<?php foreach($posts as $post){ ?>
-    <li><a href="show?id=<?= $post["ID"] ?>"> <?= htmlspecialchars($post["content"]) ?> </a> </li> 
+<?php foreach($fruits as $fruit){ ?>
+    <li><a href="show?id=<?= $fruit["ID"] ?>"> <?= htmlspecialchars($post["content"]) ?> </a> </li> 
     <?php } ?> 
 </ul>
 

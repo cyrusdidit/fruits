@@ -1,7 +1,7 @@
 
 
 body{
-    background-color: rgb(19 30 56);
+    background-color: rgb(72, 193, 110);
     color: white;
     margin-top: 17px;
     margin-left: 15px;
@@ -15,9 +15,9 @@ header ul{
 header ul li{
     list-style-type: none;
     padding: 7px 10px;
-    background-color: #96C3EB; }
+    background-color: #96eba8; }
 header ul li:hover{
-    background-color: #6185a3; }
+    background-color: #61a36b; }
 
 /*Link change*/
 a{

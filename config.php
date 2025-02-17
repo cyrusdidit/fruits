@@ -6,7 +6,7 @@ return [
         "port" => "3306",
         "user" => "root",
         "password" => "",
-        "dbname" => "blogcyrus",
+        "dbname" => "fruits",
         "charset" => "utf8mb4"
     ]
 ];

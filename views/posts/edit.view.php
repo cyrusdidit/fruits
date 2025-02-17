@@ -10,7 +10,7 @@
     <label>
         <p>Content:</p>
         <!-- Keep the old content if validation fails -->
-        <textarea name="content" required><?= htmlspecialchars($_POST['content'] ?? $post["content"]) ?></textarea>   
+        <textarea name="name" required><?= htmlspecialchars($_POST['content'] ?? $post["content"]) ?></textarea>   
     </label>
     <br><br>
     <button type="submit">Update</button>
