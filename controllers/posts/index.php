@@ -10,7 +10,7 @@ $config = require("config.php");
 $db = new Database($config["database"]);
 
 //search logic
-$sql = "SELECT * FROM fruits ORDER BY name ASC";
+$sql = "SELECT * FROM fruits "; //ORDER BY name ASC (come back to this)
 $params = [];
 if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
     //filters posts if they include "search_query"
@@ -19,10 +19,10 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
     $params = ["search_query" => $search_query];
 }
 //shows the results (if empty will show all posts)
-$posts = $db->query($sql, $params)->fetchAll(); 
+$fruits = $db->query($sql, $params)->fetchAll(); 
 
 $pageTitle="FRUITS";
-//dd($posts);
+//dd($fruits);
 //Puts search, posts and header into index.view.php
 require "views/posts/index.view.php";
 

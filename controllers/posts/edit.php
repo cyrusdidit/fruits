@@ -3,23 +3,25 @@
 $pageTitle = "EDITING";
 
 $config = require("config.php");
-require "Validator.php"; // Gets validator class
+require "Validator.php"; // Gets Validator class
+require "Database.php";  // Make sure Database.php is included if not already
 
 $db = new Database($config["database"]);
 
 // Check if 'id' is provided in the URL
 if (!isset($_GET["id"])) {
-    die("No post ID provided.");
+    die("No fruit ID provided.");
 }
 
-$postID = $_GET["id"];
+$fruitID = $_GET["id"];
 
-// Fetch the existing post
-$query = $db->query("SELECT * FROM posts WHERE ID = :id", ["id" => $postID]);
-$post = $query->fetch();
+// Fetch the existing fruits
+$query = $db->query("SELECT * FROM fruits WHERE ID = :id", ["id" => $fruitID]);
+$fruit = $query->fetch();
+
 //If the id doesn't exist
-if (!$post) {
-    die("Post not found.");
+if (!$fruit) {
+    die("Fruit not found.");
 }
 
 // Empty errors array
@@ -28,10 +30,10 @@ $errors = [];
 // Handle updating
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $postID = $_POST["id"]; // Get post ID from hidden input
-    $content = trim($_POST["name"] ?? "");
+    $name = trim($_POST["name"] ?? "");
 
-    if (!Validator::string($content, max: 50)) {
-        $errors["name"] = "Name must be between 1 and 50 characters!";
+    if (!Validator::string($name, max: 40, min: 2)) {
+        $errors["name"] = "Name must be between 2 and 40 characters!";
     }
 
     if (empty($errors)) {

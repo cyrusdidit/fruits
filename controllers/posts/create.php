@@ -1,22 +1,22 @@
 <?php
 
-$pageTitle = "CREATING";
+$pageTitle = "ADDING";
 
 $config = require("config.php");
-require "Validator.php"; //gets validator class
+require "Validator.php"; // Gets validator class
 
 $db = new Database($config["database"]);
 
-//empty errors array
+// Initialize errors array
 $errors = [];
 
 // Check if the form was submitted with POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $content = trim($_POST["content"] ?? "");
+    $name = trim($_POST["name"] ?? "");
 
     // Validate input using Validator class
-    if (!Validator::string($_POST["name"], max: 50 )) { //! makes it so if content is <50 then will work (true = false)
-        $errors["name"] = "name must be between 1 and 50 characters!";
+    if (!Validator::string($name, max: 40, min: 2 )) { //! makes it so if content is <50 then will work (true = false)
+        $errors["name"] = "name must be between 2 and 40 characters!";
     }
 
     if (empty($errors)) {

@@ -7,7 +7,7 @@
 
 <form>
 <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>'/>
-<button>Search!</button>
+<button>Search</button>
 </form>
 
 <?php if (count($fruits) == 0){ ?>
@@ -17,7 +17,7 @@
 
 <ul>
 <?php foreach($fruits as $fruit){ ?>
-    <li><a href="show?id=<?= $fruit["ID"] ?>"> <?= htmlspecialchars($post["content"]) ?> </a> </li> 
+    <li><a href="show?id=<?= $fruit["ID"] ?>"> <?= htmlspecialchars($fruit["name"]) ?> </a> </li> 
     <?php } ?> 
 </ul>
 
